@@ -1,0 +1,207 @@
+.HP-Unit {
+	position: relative;
+	width: 800px;
+	height: 522px;
+	color: #fff;
+	background: #000;
+}
+.HP-Video {
+	position: absolute;
+	overflow: hidden;
+	top: 0;
+	width: 100%;
+	bottom: 50px;
+	background: #000;
+	border: 1px solid #E5E5E5;
+}
+.HP-Control {
+	position: absolute;
+	bottom: 30px;
+	width: 100%;
+	height: 20px;
+	background: #F4F3F3;
+	color: #949393;
+	border: 1px solid #E5E5E5;
+}
+.HP-Control div{
+	display: inline-block;
+}
+.video-button {
+	position: absolute;
+	color: #a2a2a2;
+	width: 25px;
+	text-align: center;
+	line-height: 20px;
+	top: 0;
+	bottom: 0;
+	cursor: pointer;
+	font-size: 5px;
+}
+.HP-Control .button-play-pause {
+	padding: 1px 12px;
+	font-size: 5px;
+	cursor: pointer;
+	border-right: 1px solid #E5E5E5;
+}
+.HP-Control .progress-bar {
+	position: absolute;
+	overflow: hidden;
+	cursor: default;
+	top: 0;
+	bottom: 0;
+	left: 35px;
+	width: -webkit-calc(100% - 295px);
+	width: calc(100% - 295px);
+}
+.bar {
+	cursor: pointer;
+	width: -webkit-calc(100% - 20px);
+	width: calc(100% - 20px);
+	position: absolute;
+	left: 10px;
+	top: 7px;
+	bottom: 0;
+	height: 6px;
+	background: #949494;
+	border-radius: 6px;
+}
+.bar .load {
+	background: #00a0d8;
+	position: absolute;
+	height: 100%;
+	border-radius: 6px;
+}
+.bar .dark {
+	background: #007bb1;
+	position: absolute;
+	height: 100%;
+	border-radius: 6px;
+}
+.dark:before {
+	position: absolute;
+	top: -3px;
+	right: -6px;
+	width: 12px;
+	height: 12px;
+	background-color: #fff;
+	border-radius: 12px;
+	-webkit-box-shadow: 0 0 1px rgba(0,0,0,.5);
+	box-shadow: 0 0 1px rgba(0,0,0,.5);
+	content: "";
+	cursor: pointer;
+}
+.dark::after {
+	position: absolute;
+	right: -3px;
+	width: 6px;
+	height: 6px;
+	background-color: #009fd6;
+	border-radius: 6px;
+	-webkit-box-shadow: inset 0 0 1px rgba(0,0,0,.5);
+	box-shadow: inset 0 0 1px rgba(0,0,0,.5);
+	content: "";
+	cursor: pointer;
+}
+.bar::after {
+	content: "";
+	width: 100%;
+	height: 18px;
+	background-color: rgba(255,255,255,0);
+	position: absolute;
+	top: -6px;
+}
+.time-label {
+	width: 80px;
+	font-size: 11px;
+	position: absolute;
+	right: 187px;
+	text-align: center;
+	line-height: 22px;
+	height: 20px;
+}
+.volume {
+	position: absolute;
+	top: 1px;
+	right: 168px;
+	bottom: 0;
+}
+.volume-bar {
+	position: absolute;
+	top: 0;
+	right: 93px;
+	bottom: 0;
+	width: 80px;
+}
+.comment-group {
+	position: absolute;
+	top: -1px;
+	right: 35px;
+	bottom: 0;
+	font-size: 18px;
+}
+.arrows {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	font-size: 14px;
+}
+.HP-Text {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 30px;
+	background: #F4F3F3;
+	border: 1px solid #E5E5E5;
+	color: #949393;
+}
+.text-style {
+	width: 80px;
+	border-right: solid 1px #ececec;
+	height: 100%;
+}
+.font {
+	position: absolute;
+	top: 5px;
+	left: 10px;
+	font-size: 20px;
+}
+.setting {
+	position: absolute;
+	top: 4px;
+	left: 48px;
+	font-size: 20px;
+}
+.comment-block {
+	position: absolute;
+	top: 0;
+	left: 81px;
+	height: 100%;
+	right: 0;
+}
+.comment-block input {
+	position: absolute;
+	color: #666;
+	width: calc(100% - 100px);
+	box-shadow: inset 0 5px 10px rgba(68,68,68,.07);
+	top: 0;
+	height: calc(100% - 4px);
+	border: 0;
+	left: 0;
+	outline: 0;
+	padding: 2px 4px;
+}
+.comment-send-button {
+	position: absolute;
+	color: #fff;
+	font-size: 20px;
+	text-align: center;
+	right: -1px;
+	width: 99px;
+	height: 100%;
+	line-height: 30px;
+	border: 1px solid #0085b3;
+	border-top: none;
+	cursor: pointer;
+	background-color: #00a1d8;
+}
