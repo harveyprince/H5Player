@@ -15,8 +15,8 @@
 	width: 20%;
 	height: 100%;
 	bottom: 50px;
-	background: #fff;
-	border: 1px solid #E5E5E5;
+	/*background: #fff;*/
+	/*border: 1px solid #E5E5E5;*/
 }
 .HP-User-List div,.HP-Comment-List div {
 	display: inline-block;
@@ -29,6 +29,19 @@
 	background: #DBDBDB;
 	float: left;
 	text-align: center;
+}
+.panel-key {
+	/*color: #000;*/
+}
+.panel-key:hover {
+	color: #000;
+	background: #fff;
+}
+.panel-key>i {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	right: 0;
 }
 .user-list,.comment-list {
 	width: 100%;
@@ -52,8 +65,8 @@
 	width: 30%;
 	height: 100%;
 	bottom: 50px;
-	background: #fff;
-	border: 1px solid #E5E5E5;
+	/*background: #fff;*/
+	/*border: 1px solid #E5E5E5;*/
 }
 .HP-Comment-List .panel-key {
 	position: relative;
@@ -92,7 +105,9 @@
 	height: 30px;
 }
 .comment-block .bubble{
-	width: 140px;
+	min-width: 140px;
+	max-width: -webkit-calc(100% - 80px);
+	max-width: calc(100%-80px);
 	float: left;
 }
 .comment-block.fr .bubble{
