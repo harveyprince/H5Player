@@ -1,29 +1,52 @@
 $(".panel-key").click(function(){
 	$(this).parent().trigger("lock");
+	var content = $(this).html();
+	if(content.indexOf('left')>=0){
+		$(this).html(content.replace('left','right'));
+	}else{
+		$(this).html(content.replace('right','left'));
+	}
 });
 $(".HP-User-List").bind("lock",function(e){
 	var $target = $(e.target);
-	var pos = Number($target.css("left").replace("px",""));
-	pos = isNaN(pos)?0:pos;
-	if(pos < 0){
-		$target.animate({left:"0"},"slow");
-		$target.find(".panel-key i").removeClass('fa-chevron-right').addClass('fa-chevron-left');
-	}else{
-		var width = $target.width();
-		$target.animate({left:(10-width)+"px"},"slow");
-		$target.find(".panel-key i").removeClass('fa-chevron-left').addClass('fa-chevron-right');
-	}
+	$target.find(".user-panel").animate({width: 'toggle'});	
 });
 $(".HP-Comment-List").bind("lock",function(e){
 	var $target = $(e.target);
-	var pos = Number($target.css("right").replace("px",""));
-	pos = isNaN(pos)?0:pos;
-	if(pos < -1){
-		$target.animate({right:"-1"},"slow");
-		$target.find(".panel-key i").removeClass('fa-chevron-left').addClass('fa-chevron-right');
-	}else{
-		var width = $target.width();
-		$target.animate({right:(10-width)+"px"},"slow");
-		$target.find(".panel-key i").removeClass('fa-chevron-right').addClass('fa-chevron-left');
-	}
+	$target.find(".comment-panel").animate({width: 'toggle'});	
 });
+// play
+$(".button-play-pause").click(function(){
+	$("video").trigger("play");
+});
+
+//fullscreen
+$(".arrows").click(function(){
+	if($(".H5Player").width()<window.screen.availWidth){
+		launchFullScreen($(".H5Player").get(0)); // any individual element
+	}else{
+		cancelFullscreen();
+	}
+	
+	
+});
+function launchFullScreen(element) {
+  if(element.requestFullScreen) {
+    element.requestFullScreen();
+  } else if(element.mozRequestFullScreen) {
+    element.mozRequestFullScreen();
+  } else if(element.webkitRequestFullScreen) {
+    element.webkitRequestFullScreen();
+  }
+}
+
+// Whack fullscreen
+function cancelFullscreen() {
+  if(document.cancelFullScreen) {
+    document.cancelFullScreen();
+  } else if(document.mozCancelFullScreen) {
+    document.mozCancelFullScreen();
+  } else if(document.webkitCancelFullScreen) {
+    document.webkitCancelFullScreen();
+  }
+}
