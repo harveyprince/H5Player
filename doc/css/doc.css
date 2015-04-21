@@ -30,7 +30,7 @@
 	float: left;
 	text-align: center;
 }
-.user-list {
+.user-list,.comment-list {
 	width: 100%;
 	position: absolute;
 	bottom: 0;
@@ -68,6 +68,83 @@
 	width: calc(100%-10px);
 	background: #DBDBDB;
 	float: right;
+}
+.comment-list {
+	width: -webkit-calc(100% - 20px);
+	width: calc(100%-20px);
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.comment-block {
+	padding: 1px 1px;
+	width: 100%;
+}
+.comment-block .head-icon {
+	float: left;
+	width: 30px;
+	height: 30px;
+}
+.comment-block.fr .head-icon {
+	float: right;
+}
+.comment-block .head-icon img {
+	width: 30px;
+	height: 30px;
+}
+.comment-block .bubble{
+	width: 140px;
+	float: left;
+}
+.comment-block.fr .bubble{
+	float: right;
+	padding-left: 0;
+	padding-right: 10px;
+}
+.bubble {
+    padding-left:10px;
+    position:relative;
+}
+ 
+.triangle {
+    position:absolute;
+    top:15px;
+    margin-top:-8px;
+    left:2px;
+    display:block;
+    width:0;
+    height:0;
+    overflow:hidden;
+    line-height:0;
+    font-size:0;
+    border-bottom:8px solid #DBDBDB;
+    border-top:8px solid #DBDBDB;
+    border-left:none;
+    border-right:8px solid #3079ED;
+}
+.bubble .article {
+    float:left;
+    color:#FFF;
+    display:inline-block;
+    *display:inline; zoom:1;
+    padding:5px 10px;
+    border:1px solid #3079ED;
+    background:#eee;
+    border-radius:5px;
+    background-color: #4D90FE;
+    background-image:-webkit-gradient(linear,left top,left bottom,from(#4D90FE),to(#4787ED));
+    background-image:-webkit-linear-gradient(top,#4D90FE,#4787ED);
+    background-image:-moz-linear-gradient(center top , #4D90FE, #4787ED);
+    background-image:linear-gradient(top,#4D90FE,#4787ED);
+}
+.fr .triangle {
+    left:auto;
+    right:2px;
+    border-right:none;
+    border-left:8px solid #3079ED;
+}
+ 
+.fr .article {
+    float:right;
 }
 .HP-Video,.HP-Mask {
 	position: absolute;
@@ -277,14 +354,14 @@
 	font-size: 20px;
 	cursor: pointer;
 }
-.comment-block {
+.text-block {
 	position: absolute;
 	top: 0;
 	left: 81px;
 	height: 100%;
 	right: 0;
 }
-.comment-block input {
+.text-block input {
 	position: absolute;
 	color: #666;
 	width: calc(100% - 100px);
