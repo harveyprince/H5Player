@@ -28,6 +28,15 @@
 	width: calc(100%-10px);
 	background: #DBDBDB;
 	float: left;
+	text-align: center;
+}
+.user-list {
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	top: 23px;
+	left: 0;
+	overflow-x :hidden;
 }
 .HP-User-List .panel-key {
 	position: relative;
@@ -68,6 +77,44 @@
 	bottom: 50px;
 	background: #000;
 	border: 1px solid #E5E5E5;
+}
+.HP-Mask .head {
+	width: 100%;
+	font-size: 20px;
+	color: #888C93;
+	text-align: center;
+}
+.user-block {
+	border-top: 1px solid #E5E5E5;
+	width: 90%;
+	height: 52px;
+	padding-bottom: 1px;
+	padding-top: 7px;
+}
+.user-block div {
+	display: inline-block;
+}
+.head-icon {
+	float: left;
+	width: 50px;
+	height: 50px;
+}
+.head-icon img {
+	width: 50px;
+	height: 50px;
+	border-radius: 50px;
+}
+.detail-info {
+	float: right;
+	width: -webkit-calc(100% - 52px);
+	width: calc(100%-52px);
+	height: 100%;
+	text-align: center;
+	padding-left: 2px;
+}
+.detail-info .name {
+	padding-top: 13px;
+	word-break: break-all;
 }
 .HP-Control {
 	position: absolute;
