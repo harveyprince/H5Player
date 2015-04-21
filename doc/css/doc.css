@@ -1,3 +1,6 @@
+.H5Player {
+	
+}
 .HP-Unit {
 	position: relative;
 	width: 800px;
@@ -5,7 +8,59 @@
 	color: #fff;
 	background: #000;
 }
-.HP-Video {
+.HP-User-List {
+	position: absolute;
+	overflow: hidden;
+	top: 0;
+	width: 20%;
+	height: 100%;
+	bottom: 50px;
+	background: #fff;
+	border: 1px solid #E5E5E5;
+}
+.HP-User-List div,.HP-Comment-List div {
+	display: inline-block;
+}
+.user-panel {
+	position: relative;
+	height: 100%;
+	width: -webkit-calc(100% - 10px);
+	width: calc(100%-10px);
+	background: #DBDBDB;
+	float: left;
+}
+.HP-User-List .panel-key {
+	position: relative;
+	height: 100%;
+	width: 10px;
+	top: 0;
+}
+.HP-Comment-List {
+	position: absolute;
+	overflow: hidden;
+	top: 0;
+	right: -1px;
+	width: 30%;
+	height: 100%;
+	bottom: 50px;
+	background: #fff;
+	border: 1px solid #E5E5E5;
+}
+.HP-Comment-List .panel-key {
+	position: relative;
+	height: 100%;
+	width: 10px;
+	top: 0;
+}
+.comment-panel {
+	position: relative;
+	height: 100%;
+	width: -webkit-calc(100% - 10px);
+	width: calc(100%-10px);
+	background: #DBDBDB;
+	float: right;
+}
+.HP-Video,.HP-Mask {
 	position: absolute;
 	overflow: hidden;
 	top: 0;
@@ -124,6 +179,7 @@
 	top: 1px;
 	right: 168px;
 	bottom: 0;
+	font-size: 15px;
 }
 .volume-bar {
 	position: absolute;
@@ -165,12 +221,14 @@
 	top: 5px;
 	left: 10px;
 	font-size: 20px;
+	cursor: pointer;
 }
 .setting {
 	position: absolute;
 	top: 4px;
 	left: 48px;
 	font-size: 20px;
+	cursor: pointer;
 }
 .comment-block {
 	position: absolute;
