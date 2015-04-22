@@ -15,8 +15,19 @@ $(".HP-Comment-List").bind("lock",function(e){
 	var $target = $(e.target);
 	$target.find(".comment-panel").animate({width: 'toggle'});	
 });
+Number.prototype.timeformat = function(){
+	var val = this;
+	var minite = Math.floor(val/60);
+	var sec = Math.floor(val - minite*60);
+	minite = minite<10?'0'+minite.toString():minite;
+	sec = sec<10?'0'+sec.toString():sec;
+	return minite+":"+sec;
+}
 //video action
 $(document).ready(function(){
+	$("video").bind("canplay",function(){
+		$(".time-label").html("00:00/"+this.duration.timeformat());
+	});
 	$("video").bind("pause",function(){
 		$(".button-play-pause i").attr("class","fa fa-play");
 	});
@@ -26,6 +37,7 @@ $(document).ready(function(){
 	$("video").bind("timeupdate",function(){
 		if(!dragging){
 			$(".progress-bar .bar .dark").css("width",((this.currentTime / this.duration) * 100) + "%");
+			$(".time-label").html(this.currentTime.timeformat()+"/"+this.duration.timeformat());
 		}
 	});
 	$("video").bind("ended",function(){
@@ -51,6 +63,13 @@ $(document).ready(function(){
 	});
 	$(".volume-bar .bar").bind("mouseup",function(e){
 		var newVolume = ((e.offsetX) / this.offsetWidth);
+		if(newVolume<0.1){
+			$(".video-button.volume").html('<i class="fa fa-volume-off"></i>');
+		}else if(newVolume<0.6){
+			$(".video-button.volume").html('<i class="fa fa-volume-down"></i>');
+		}else{
+			$(".video-button.volume").html('<i class="fa fa-volume-up"></i>');
+		}
 		$("video").get(0).volume = newVolume;
 		$(".volume-bar .bar .load").css("width",newVolume * 100 + "%");
 	});
