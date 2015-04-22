@@ -49,6 +49,11 @@ $(document).ready(function(){
 		var newTime = ((e.offsetX) / this.offsetWidth) * $("video").get(0).duration;
 		$("video").get(0).currentTime = newTime;
 	});
+	$(".volume-bar .bar").bind("mouseup",function(e){
+		var newVolume = ((e.offsetX) / this.offsetWidth);
+		$("video").get(0).volume = newVolume;
+		$(".volume-bar .bar .load").css("width",newVolume * 100 + "%");
+	});
 });
 // play
 $(".button-play-pause").click(function(){
