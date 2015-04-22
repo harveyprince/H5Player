@@ -17,6 +17,7 @@
 	overflow: hidden;
 	top: 0;
 	width: 20%;
+	max-width: 200px;
 	height: 100%;
 	bottom: 50px;
 	/*background: #fff;*/

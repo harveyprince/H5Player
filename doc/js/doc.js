@@ -15,7 +15,7 @@ $(".HP-Comment-List").bind("lock",function(e){
 	var $target = $(e.target);
 	$target.find(".comment-panel").animate({width: 'toggle'});	
 });
-//progressbar
+//video action
 $(document).ready(function(){
 	$("video").bind("pause",function(){
 		$(".button-play-pause i").attr("class","fa fa-play");
@@ -24,7 +24,9 @@ $(document).ready(function(){
 		$(".button-play-pause i").attr("class","fa fa-pause");
 	});
 	$("video").bind("timeupdate",function(){
-		$(".progress-bar .bar .dark").css("width",((this.currentTime / this.duration) * 100) + "%");
+		if(!dragging){
+			$(".progress-bar .bar .dark").css("width",((this.currentTime / this.duration) * 100) + "%");
+		}
 	});
 	$("video").bind("ended",function(){
 		$(".progress-bar .bar .dark").css("width","0%");
@@ -37,6 +39,15 @@ $(document).ready(function(){
 			var dur = this.duration;
 			$(".progress-bar .bar .load").css("width",((load_end / dur) * 100) + "%");
 		}
+	});
+	var dragging = false;
+	$(".progress-bar .bar").bind("mousedown",function(e){
+		dragging = true;
+	});
+	$(".progress-bar .bar").bind("mouseup",function(e){
+		dragging = false;
+		var newTime = ((e.offsetX) / this.offsetWidth) * $("video").get(0).duration;
+		$("video").get(0).currentTime = newTime;
 	});
 });
 // play
