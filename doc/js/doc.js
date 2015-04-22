@@ -131,6 +131,31 @@ $(document).ready(function(){
 		$(".volume-bar .bar .load").css("width",newVolume * 100 + "%");
 	});
 });
+// danmaku
+$(document).ready(function(){
+	window.CM = new CommentManager($("#danmaku-stage").get(0));
+	CM.init();
+	CM.start();
+});
+// danmaku send
+$(".comment-send-button").click(function(){
+	var text = $(this).siblings("input").val();
+	if(text&&text.length>0){
+	var someDanmakuAObj = {
+	    "mode":1,
+	    "text":text,
+	    "size":30,
+	    "color":0xff0000
+	};
+	CM.send(someDanmakuAObj);
+	}
+	$(this).siblings("input").val("");
+});
+$(".text-block input").keydown(function(e){
+	if(e.keyCode==13){
+		$(".comment-send-button").click();
+	}
+});
 // play and pause
 $(".button-play-pause").click(function(){
 	if($("video").get(0).paused){
@@ -142,13 +167,11 @@ $(".button-play-pause").click(function(){
 
 //fullscreen
 $(".arrows").click(function(){
-	if($(".H5Player").width()<window.screen.availWidth){
+	if(!window.onfullscreen()){
 		launchFullScreen($(".H5Player").get(0)); // any individual element
 	}else{
 		cancelFullscreen();
 	}
-	
-	
 });
 function launchFullScreen(element) {
 	if(element.requestFullScreen) {
@@ -168,3 +191,19 @@ function cancelFullscreen() {
 		document.webkitCancelFullScreen();
 	}
 }
+window.onfullscreen = function (){
+	if(window.outerHeigth==screen.heigth && window.outerWidth==screen.width){
+		return true;
+	}else{
+		return false;
+	}
+}
+$(document).bind("fullscreenchange",function(){
+	CM.setBounds();
+});
+$(document).bind("mozfullscreenchange",function(){
+	CM.setBounds();
+});
+$(document).bind("webkitfullscreenchange",function(){
+	CM.setBounds();
+});

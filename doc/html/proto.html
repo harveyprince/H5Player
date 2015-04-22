@@ -4,16 +4,19 @@
 	<meta charset="utf-8">
 	<title>player proto</title>
 	<link rel="stylesheet" type="text/css" href="../css/doc.css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<link rel="stylesheet" type="text/css" href="../../extra/font-awesome-4.2.0/css/font-awesome.min.css">
 </head>
 <body>
 	<div class="H5Player">
 		<div class="HP-Unit">
 			<div class="HP-Video">
-				<div class="danmaku-container"></div>
 				<video autobuffer="true" id="video">
 					<source src="../video/big_buck_bunny.mp4" type="video/mp4">
 				</video>
+				<div class="danmaku-container abp">
+					<div id="danmaku-stage" class="container"></div>
+				</div>
 			</div>
 			<div class="HP-Mask">
 				<div class="HP-User-List">
@@ -91,5 +94,6 @@
 	</div>
 </body>
 <script src="../../extra/jquery/jquery.min.js"></script>
+<script src="../js/CommentCoreLibrary.js"></script>
 <script src="../js/doc.js"></script>
 </html>
