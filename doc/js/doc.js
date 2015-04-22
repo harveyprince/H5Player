@@ -1,3 +1,9 @@
+/*
+	author:harveyprince
+*/
+/*
+	panel lockin and lockout
+*/
 $(".panel-key").click(function(){
 	$(this).parent().trigger("lock");
 	var content = $(this).html();
@@ -15,6 +21,57 @@ $(".HP-Comment-List").bind("lock",function(e){
 	var $target = $(e.target);
 	$target.find(".comment-panel").animate({width: 'toggle'});	
 });
+// insert user in userlist
+/*
+	icon:image url
+	name:string
+	isSelf:boolean(keep)
+*/
+var UserBlock = function(icon,nicname,isSelf){
+	this.icon = icon;
+	this.nicname = nicname;
+	this.isSelf = isSelf;
+}
+UserBlock.prototype.constructDOM = function(){
+	var $block = $('<div class="user-block">');
+	$block.append($('<div class="head-icon">').append($('<img>').attr("src",this.icon)));
+	$block.append($('<div class="detail-info">').append($('<div class="name">').html(this.nicname)));
+	return $block;
+}
+$(".HP-User-List").bind("insert",function(e,ub){
+	var $target = $(e.target);
+	var list = $target.find(".user-list");
+	list.append(ub.constructDOM());
+});
+// insert comment in commentlist
+/*
+	icon:image url
+	comment:string
+	isSelf:boolean
+*/
+var CommentBlock = function(icon,comment,isSelf){
+	this.icon = icon;
+	this.comment = comment;
+	this.isSelf = isSelf;
+};
+CommentBlock.prototype.constructDOM = function(){
+	var $block = $('<div class="comment-block">');
+	if(this.isSelf){
+		$block.addClass("fr");
+	}
+	$block.append($('<div class="head-icon">').append($('<img>').attr("src",this.icon)));
+	$block.append($('<div class="bubble">').append($('<span class="triangle">')).append($('<div class="article">').html(this.comment)));
+	return $block;
+}
+$(".HP-Comment-List").bind("insert",function(e,cb){
+	var $target = $(e.target);
+	var list = $target.find(".comment-list");
+	list.append(cb.constructDOM());
+});
+
+/*
+	extra function
+*/
 Number.prototype.timeformat = function(){
 	var val = this;
 	var minite = Math.floor(val/60);
@@ -74,7 +131,7 @@ $(document).ready(function(){
 		$(".volume-bar .bar .load").css("width",newVolume * 100 + "%");
 	});
 });
-// play
+// play and pause
 $(".button-play-pause").click(function(){
 	if($("video").get(0).paused){
 		$("video").trigger("play");
@@ -102,8 +159,6 @@ function launchFullScreen(element) {
 		element.webkitRequestFullScreen();
 	}
 }
-
-// Whack fullscreen
 function cancelFullscreen() {
 	if(document.cancelFullScreen) {
 		document.cancelFullScreen();
