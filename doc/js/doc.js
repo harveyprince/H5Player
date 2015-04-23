@@ -21,6 +21,23 @@ $(".HP-Comment-List").bind("lock",function(e){
 	var $target = $(e.target);
 	$target.find(".comment-panel").animate({width: 'toggle'});	
 });
+/*
+	font and setting panel
+*/
+$(".text-style .font").click(function(){
+	$(".panel-box").hide();
+	$(".font-panel").animate({width:'toggle'});
+});
+$(".text-style .setting").click(function(){
+	$(".panel-box").hide();
+	$(".setting-panel").animate({width:'toggle'});
+});
+$(".panel-title i").click(function(){
+	$(this).parent().parent().animate({width:'toggle'});
+});
+$(".option").click(function(){
+	$(this).parent().attr('value',$(this).attr('value'));
+});
 // insert user in userlist
 /*
 	icon:image url
@@ -142,10 +159,10 @@ $(".comment-send-button").click(function(){
 	var text = $(this).siblings("input").val();
 	if(text&&text.length>0){
 	var someDanmakuAObj = {
-	    "mode":1,
+	    "mode":Number($(".danmaku-mode").attr('value')),
 	    "text":text,
-	    "size":30,
-	    "color":0xff0000
+	    "size":Number($(".font-size").attr('value')),
+	    "color":Number($(".font-color").attr('value'))
 	};
 	CM.send(someDanmakuAObj);
 	}
