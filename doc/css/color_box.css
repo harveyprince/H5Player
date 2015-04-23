@@ -1,0 +1,31 @@
+table.color_box {
+	/*width: 300px;
+	height: 200px;*/
+}
+table.color_box tbody>tr>td td {
+	width: 10px;
+	height: 10px;
+}
+table.color_box thead td>div {
+	display: inline-block;
+}
+table.color_box thead td>div:first-child {
+	margin-left: 2px;
+}
+table.color_box thead td>div:last-child {
+	margin-right: 2px;
+}
+.color_chosen {
+	width: 60px;
+	height: 15px;
+	background-color: #fff;
+	border: 1px solid #ececec;
+}
+.color_code {
+	float: right;
+	width: 65px;
+	text-align: center;
+	height: 15px;
+	border: 1px solid #ececec;
+	font-size: 16px;
+}

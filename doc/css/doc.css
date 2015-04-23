@@ -387,8 +387,8 @@
 }
 .font-panel,.setting-panel {
 	position: absolute;
-	width: 200px;
-	height: 150px;
+	width: 270px;
+	height: 230px;
 	bottom: 30px;
 	background-color: white;
 	border:  solid 1px #ececec;

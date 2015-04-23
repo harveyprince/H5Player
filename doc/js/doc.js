@@ -38,6 +38,10 @@ $(".panel-title i").click(function(){
 $(".option").click(function(){
 	$(this).parent().attr('value',$(this).attr('value'));
 });
+$(document).ready(function(){
+	window.colorbox = new ColorBox($(".font-color"));
+	colorbox.initBox();
+});
 // insert user in userlist
 /*
 	icon:image url
@@ -162,7 +166,7 @@ $(".comment-send-button").click(function(){
 	    "mode":Number($(".danmaku-mode").attr('value')),
 	    "text":text,
 	    "size":Number($(".font-size").attr('value')),
-	    "color":Number($(".font-color").attr('value'))
+	    "color":window.colorbox.value
 	};
 	CM.send(someDanmakuAObj);
 	}
