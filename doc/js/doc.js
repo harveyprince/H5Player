@@ -37,6 +37,8 @@ $(".panel-title i").click(function(){
 });
 $(".option").click(function(){
 	$(this).parent().attr('value',$(this).attr('value'));
+	$(this).siblings(".option.active").removeClass("active");
+	$(this).addClass("active");
 });
 $(document).ready(function(){
 	window.colorbox = new ColorBox($(".font-color"));
