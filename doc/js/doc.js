@@ -65,6 +65,7 @@ $(".HP-User-List").bind("insert",function(e,ub){
 	var $target = $(e.target);
 	var list = $target.find(".user-list");
 	list.append(ub.constructDOM());
+	list.get(0).scrollTop = list.get(0).scrollHeight; 
 });
 // insert comment in commentlist
 /*
@@ -90,6 +91,7 @@ $(".HP-Comment-List").bind("insert",function(e,cb){
 	var $target = $(e.target);
 	var list = $target.find(".comment-list");
 	list.append(cb.constructDOM());
+	list.get(0).scrollTop = list.get(0).scrollHeight; 
 });
 
 /*
